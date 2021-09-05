@@ -1,0 +1,27 @@
+{
+    "name": "smatrix",
+    "version": "0.1.0",
+    "description": "description",
+    "main": "index.js",
+    "repository": "git@github.com:ffreemt/similarity-matrix.git",
+    "author": "ffreemt",
+    "license": "MIT",
+    "dependencies": {
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w smatrix -x pytest tests",
+        "pyright": "nodemon -w smatrix -w .venv -e .py -x pyright smatrix tests",
+        "pytest": "nodemon -w tests -w smatrix -e .py -x pytest tests smatrix",
+        "style": "nodemon -w smatrix -w tests -x \"black tests smatrix && python -m flake8\"",
+        "docstyle": "nodemon -w smatrix -w tests -x pydocstyle --convention=google tests smatrix",
+        "pylint": "nodemon -w smatrix -e .py -x pylint smatrix",
+        "test:smatrix": "nodemon -w tests -e .py -x pytest -k smatrix tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests smatrix",
+        "flake8": "flake8 tests smatrix",
+        "pep257": "pep257 tests smatrix",
+        "final": "run-s pep257 black flake8 pytest"
+    }
+}
