@@ -7,7 +7,7 @@ from smatrix.en2zh import en2zh
 from smatrix.en2zh_tokens import en2zh_tokens
 from smatrix.gen_model import gen_model
 from smatrix.insert_spaces import insert_spaces
-from smatrix.docterm_scores import docterm_scores
+from smatrix.smatrix import smatrix
 
 texten = [
     elm.strip()
@@ -52,9 +52,9 @@ def test_en2zh_tokens():
     assert len(textenzh3) == 3
 
 
-def test_docterm_scores():
-    """Test docterm_scores."""
+def test_smatrix():
+    """Test smatrix."""
     textenzh_tokens = en2zh_tokens(texten)
-    mat = docterm_scores(tokenized_docs, textenzh_tokens, model)
+    mat = smatrix(tokenized_docs, textenzh_tokens, model)
 
     assert mat.shape == (33, 36)
