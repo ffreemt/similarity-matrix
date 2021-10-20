@@ -10,6 +10,7 @@ from psutil import virtual_memory
 from more_itertools import ilen
 
 from textacy.representations import Vectorizer
+# from textacy.representations.vectorizers import Vectorizer
 from logzero import logger
 
 from smatrix.gen_model import gen_model
